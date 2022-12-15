@@ -18,6 +18,4 @@ texture = ExtResource( 4 )
 script = ExtResource( 2 )
 
 [node name="Debugger" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
 script = ExtResource( 3 )

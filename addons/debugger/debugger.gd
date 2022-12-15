@@ -1,5 +1,9 @@
 extends Control
 
+onready var debugger_preset = preload("debugger-ui.tscn")
+
+onready var debugger_monitor_integer = preload("res://addons/debugger/components/monitor_integer/monitor_integer.tscn")
+
 onready var draggable_texture = preload("icon-16.png")
 
 # dragging
@@ -35,6 +39,9 @@ func _process(_delta: float) -> void:
 		# check for different types
 		if typeof(property) == TYPE_VECTOR2:
 			element.text = "x: %.2f, y: %.2f" % [property.x, property.y]
+		
+		if typeof(property) == TYPE_REAL:
+			element.text = str(property)
 
 func add(_object: Node, _property: String, identifier: String = "") -> void:
 	
@@ -50,6 +57,8 @@ func remove(_object: String) -> bool:
 	return false
 
 func init() -> void:
+	
+	var debugger_ui = debugger_preset.instance()
 	
 	# Panel
 	var panel_container = PanelContainer.new()
@@ -91,8 +100,16 @@ func init() -> void:
 	container.name = "DebugContainer"
 	panel_hbox.add_child(container)
 	
+	debugger_ui.rect_min_size = Vector2(300, 500)
 	
-	self.add_child(panel_container)
+	self.add_child(debugger_ui)
+	
+	# simulate new monitor integer
+	var monitor_integer = debugger_monitor_integer.instance()
+	debugger_ui.addMonitor(monitor_integer)
+	
+	var monitor_integer2 = debugger_monitor_integer.instance()
+	debugger_ui.addMonitor(monitor_integer2)
 
 func on_button_down(event) -> void:
 	drag_start = event.position
