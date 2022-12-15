@@ -1,10 +1,11 @@
 extends Control
 
-onready var debugger_preset = preload("debugger-ui.tscn")
+onready var ui = preload("ui.tscn").instance()
+onready var list = ui.get_node("%ContentList")
 
+# Types of Monitors and Input
 onready var debugger_monitor_integer = preload("res://addons/debugger/components/monitor_integer/monitor_integer.tscn")
 
-onready var draggable_texture = preload("icon-16.png")
 
 # dragging
 var drag_start: Vector2 = Vector2(0, 0)
@@ -20,99 +21,40 @@ func _ready() -> void:
 		return
 		
 	init()
-	print("Debugger ready")
+	
+func init() -> void:
+	
+	# Some settings
+	ui.rect_min_size = Vector2(300, 500)
+	# padding...
+	# update rate...
+	# theming...
+	# etc.
+	
+	self.add_child(ui)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Engine.editor_hint:
 		return
-		
-	for identifier in monitor:
-		var dict = monitor[identifier]
-		
-		var object = dict.object
-		var property_string = dict.property
-		
-		var property = object[property_string]
-		var element = dict.element
-		
-		# check for different types
-		if typeof(property) == TYPE_VECTOR2:
-			element.text = "x: %.2f, y: %.2f" % [property.x, property.y]
-		
-		if typeof(property) == TYPE_REAL:
-			element.text = str(property)
-
-func add(_object: Node, _property: String, identifier: String = "") -> void:
-	
-	# add label
-	var label = Label.new()
-	label.text = identifier
-	container.add_child(label)
-	
-	monitor[identifier] = {"object": _object, "property": _property, "element": label}
-	print("added %s to debugger" % identifier)
 
 func remove(_object: String) -> bool:
 	return false
 
-func init() -> void:
+func addMonitor(obj, property, identifier) -> void:
+	# chose the correct monitor type (integer, vector2, etc..)
 	
-	var debugger_ui = debugger_preset.instance()
-	
-	# Panel
-	var panel_container = PanelContainer.new()
-	var panel_hbox = VBoxContainer.new()
-	var margin_container = MarginContainer.new()
-	container = VBoxContainer.new()
-	
-	# Heading and Draggable
-	var heading_container = HBoxContainer.new()
-	heading_container.name = "Heading Container"
-	
-	var heading_label = Label.new()
-	heading_label.text = "DEBUGEER"
-	heading_label.valign = VALIGN_CENTER
-	heading_label.size_flags_horizontal = SIZE_EXPAND_FILL
-	
-	var heading_draggable = TextureButton.new()
-	heading_draggable.texture_normal = draggable_texture
-	#heading_draggable.connect("button_down", self, "on_button_down")
-	
-	heading_container.size_flags_horizontal = SIZE_EXPAND_FILL
-	heading_container.add_child(heading_draggable)
-	heading_container.add_child(heading_label)
-	
-	margin_container.add_constant_override("margin_top", panel_padding)
-	margin_container.add_constant_override("margin_right", panel_padding)
-	margin_container.add_constant_override("margin_bottom", panel_padding)
-	margin_container.add_constant_override("margin_left", panel_padding)
-	
-	# 1st level layout
-	panel_container.add_child(margin_container)
-	
-	margin_container.add_child(panel_hbox)
-	
-	# 2nd level layout
-	panel_hbox.add_child(heading_container)
-	
-	# 3rd level layout
-	container.name = "DebugContainer"
-	panel_hbox.add_child(container)
-	
-	debugger_ui.rect_min_size = Vector2(300, 500)
-	
-	self.add_child(debugger_ui)
-	
-	# simulate new monitor integer
-	var monitor_integer = debugger_monitor_integer.instance()
-	debugger_ui.addMonitor(monitor_integer)
-	
-	var monitor_integer2 = debugger_monitor_integer.instance()
-	debugger_ui.addMonitor(monitor_integer2)
-
-func on_button_down(event) -> void:
-	drag_start = event.position
-	print(drag_start)
-	print("on click")
+	# if a vector, if a real...
+	if typeof(obj[property]) == TYPE_VECTOR2:
+		print("is vector")
+		print(typeof(obj[property]))
+		
+		var new_monitor = debugger_monitor_integer.instance()
+		
+		# add it first, so the child elements are instantiated
+		list.add_child(new_monitor)
+		
+		# the monitors should have an init function that sets label and value
+		# and also an update function
+		new_monitor.init(obj, property, identifier)
 	pass
