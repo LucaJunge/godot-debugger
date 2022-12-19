@@ -3,7 +3,7 @@ extends EditorPlugin
 
 
 func _enter_tree() -> void:
-	add_custom_type("Debugger", "Control", preload("debugger.gd"), preload("icon-16.png"))
+	add_custom_type("Debugger", "PanelContainer", preload("debugger.gd"), preload("icon-16.png"))
 
 
 func _exit_tree() -> void:

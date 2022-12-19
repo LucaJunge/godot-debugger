@@ -8,9 +8,12 @@ func _ready() -> void:
 	
 	debugger.addMonitor(bug, "position", "Bug Position")
 	debugger.addMonitor(bug, "scale", "Bug Scale")
+
+	#debugger.set_rate(30) # 30 times a second, down to 1 times a second maybe?
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _process(_delta: float) -> void:
+	debugger.update()
+	pass

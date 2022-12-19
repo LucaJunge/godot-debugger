@@ -10,8 +10,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	position += random_walk(walk_distance)
 	
-	var new_scale = random_walk(scale_distance)
-	scale += Vector2(new_scale.x, new_scale.y)
+	var rs = (randi() % 10 + 1) / 10.0
+	scale = Vector2(rs, rs)
 
 func random_walk(distance: float) -> Vector2:
 	var next_walk = Vector2(0, 0)
