@@ -18,6 +18,9 @@ script = ExtResource( 1 )
 position = Vector2( 521, 310 )
 texture = ExtResource( 4 )
 script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "hello"
+}
 
 [node name="Debugger" type="PanelContainer" parent="."]
 margin_right = 150.0
@@ -25,3 +28,10 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 150, 200 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "This label appears in the debugger as well! Yay!"
+align = 1
+valign = 1

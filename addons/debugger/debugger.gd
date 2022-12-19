@@ -4,6 +4,7 @@ extends PanelContainer
 # Types of Monitors and Input
 onready var debugger_monitor_integer = preload("res://addons/debugger/components/monitor_integer/monitor_integer.tscn")
 onready var debugger_monitor_vector2 = preload("res://addons/debugger/components/monitor_vector2/monitor_vector2.tscn")
+onready var debugger_monitor_string = preload("res://addons/debugger/components/monitor_string/monitor_string.tscn")
 # ...
 # ...
 
@@ -63,19 +64,21 @@ func addMonitor(obj: Object, property: String, identifier: String) -> void:
 	# chose the correct monitor type (integer, vector2, etc..)
 	
 	# if a vector, if a real...
-	if typeof(obj[property]) == TYPE_VECTOR2:
-		var new_monitor = debugger_monitor_vector2.instance()
-		
-		# add it first, so the child elements are instantiated
-		list.add_child(new_monitor)
-		
-		# the monitors should have an init function that sets label and value
-		# and also an update function
-		new_monitor.init(obj, property, identifier)
-		
-		monitors.append(new_monitor)
-	pass
+	var new_monitor = get_monitor_of_type(obj, property)
+	list.add_child(new_monitor)
+	
+	new_monitor.init(obj, property, identifier)
+	monitors.append(new_monitor)
 
 # this should return a configured instance of a specific type according to the parameter
-func get_monitor_type(type) -> void:
-	pass
+func get_monitor_of_type(obj, property) -> Control:
+	
+	var new_monitor
+	
+	match typeof(obj[property]):
+		TYPE_VECTOR2:
+			new_monitor = debugger_monitor_vector2.instance()
+		TYPE_STRING:
+			new_monitor = debugger_monitor_string.instance()
+		
+	return new_monitor

@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://addons/debugger/resources/debugger_theme.tres" type="Theme" id=1]
-[ext_resource path="res://addons/debugger/components/monitor_vector2/monitor_vector2.gd" type="Script" id=2]
+[ext_resource path="res://addons/debugger/components/monitor_string/monitor_string.gd" type="Script" id=2]
 
-[node name="MonitorVector2" type="PanelContainer"]
+[node name="MonitorString" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -770.0
