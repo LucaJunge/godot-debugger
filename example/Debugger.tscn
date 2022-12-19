@@ -23,9 +23,13 @@ __meta__ = {
 }
 
 [node name="Debugger" type="PanelContainer" parent="."]
-margin_right = 150.0
-margin_bottom = 200.0
+anchor_right = 0.501
+anchor_bottom = 0.5
+margin_right = -363.024
+margin_bottom = -100.0
 rect_min_size = Vector2( 150, 200 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 

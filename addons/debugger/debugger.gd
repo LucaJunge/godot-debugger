@@ -5,6 +5,7 @@ extends PanelContainer
 onready var debugger_monitor_integer = preload("res://addons/debugger/components/monitor_integer/monitor_integer.tscn")
 onready var debugger_monitor_vector2 = preload("res://addons/debugger/components/monitor_vector2/monitor_vector2.tscn")
 onready var debugger_monitor_string = preload("res://addons/debugger/components/monitor_string/monitor_string.tscn")
+onready var debugger_monitor_float = preload("res://addons/debugger/components/monitor_float/monitor_float.tscn")
 # ...
 # ...
 
@@ -80,5 +81,9 @@ func get_monitor_of_type(obj, property) -> Control:
 			new_monitor = debugger_monitor_vector2.instance()
 		TYPE_STRING:
 			new_monitor = debugger_monitor_string.instance()
-		
+		TYPE_INT:
+			new_monitor = debugger_monitor_integer.instance()
+		TYPE_REAL:
+			new_monitor = debugger_monitor_float.instance()
+			
 	return new_monitor
