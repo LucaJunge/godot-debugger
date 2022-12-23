@@ -14,21 +14,10 @@ func _ready() -> void:
 	# Add your properties
 	debugger.addMonitor(bug, "position", "Bug Position")
 	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
 	debugger.addMonitor(bug, "rotation_degrees", "Bug Rotation")
 	debugger.addMonitor(label, "text", "Text")
 	debugger.addMonitor(self, "unix_time", "Unix Time")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
+
 	
 	#TODO: debugger.set_rate(30) # 30 times a second, down to 1 times a second maybe?
 	# Set up the timer for a manual debugger update
