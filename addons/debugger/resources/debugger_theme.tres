@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=2]
+[gd_resource type="Theme" load_steps=13 format=2]
 
 [ext_resource path="res://addons/debugger/resources/HeadingFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/debugger/resources/ButtonFont.tres" type="DynamicFont" id=2]
@@ -39,6 +39,50 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.215686, 0.219608, 0.239216, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.215686, 0.219608, 0.239216, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=9]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.215686, 0.219608, 0.239216, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 6.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.12549, 0.129412, 0.145098, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [resource]
 Button/colors/font_color = Color( 0.156863, 0.160784, 0.180392, 1 )
 Button/fonts/font = ExtResource( 2 )
@@ -61,3 +105,7 @@ PanelContainerMonitor/base_type = "PanelContainer"
 PanelContainerMonitor/styles/panel = SubResource( 5 )
 PanelContainerValue/base_type = "PanelContainer"
 PanelContainerValue/styles/panel = SubResource( 4 )
+VScrollBar/styles/grabber = SubResource( 6 )
+VScrollBar/styles/grabber_highlight = SubResource( 8 )
+VScrollBar/styles/grabber_pressed = SubResource( 9 )
+VScrollBar/styles/scroll = SubResource( 7 )

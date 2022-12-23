@@ -15,16 +15,17 @@ onready var drag_button = ui.get_node("%DragButton")
 onready var monitors = []
 
 export var panel_padding: int = 10
-export var width: float = 150 setget set_width, get_width
+export var width: Vector2 = Vector2(320, 200) setget set_width, get_width
 
 var drag_start: Vector2 = Vector2(0, 0)
 var drag_pressed: bool = false
 
-func set_width(val: float) -> void:
-	self.rect_size.x = val
+func set_width(val: Vector2) -> void:
+	width = val
+	self.rect_size = val
 
-func get_width() -> float:
-	return self.rect_size.x
+func get_width() -> Vector2:
+	return width
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,15 +45,18 @@ func _ready() -> void:
 	
 func init() -> void:
 	
-	# Some settings
-	self.rect_min_size = Vector2(150, 200)
+	# Set width
+	#self.rect_min_size = Vector2(width.x, width.y)
+	#self.rect_size = Vector2(width.x, width.y)
+	
+	# remove background of the margin container surrounding the debugger
 	self.set("custom_styles/panel", StyleBoxEmpty.new())
 	
-	ui.rect_min_size = Vector2(150, 200)
+	ui.rect_min_size = Vector2(width.x, width.y)
+	ui.rect_size = Vector2(width.x, width.y)
 	
 	
 	# add drag button events
-	
 	drag_button.connect("gui_input", self, "on_drag_input")
 	
 	# padding...
@@ -71,11 +75,11 @@ func remove(_object: String) -> bool:
 	return false
 
 func addMonitor(obj: Object, property: String, identifier: String) -> void:
-	# chose the correct monitor type (integer, vector2, etc..)
 	
+	# Choose the correct monitor type (integer, vector2, etc..)
 	var new_monitor = get_monitor_of_type(obj, property)
 	
-	# remove the debugger help label on the first add
+	# Remove the debugger help message on the first add
 	list.get_node("%HelpLabel").visible = false
 	
 	list.add_child(new_monitor)
@@ -83,7 +87,7 @@ func addMonitor(obj: Object, property: String, identifier: String) -> void:
 	new_monitor.init(obj, property, identifier)
 	monitors.append(new_monitor)
 
-# this should return a configured instance of a specific type according to the parameter
+# This returns a configured monitor instance for the given control
 func get_monitor_of_type(obj, property) -> Control:
 	
 	var new_monitor
