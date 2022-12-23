@@ -16,7 +16,7 @@ size_flags_vertical = 3
 script = ExtResource( 3 )
 
 [node name="Bug" type="Sprite" parent="."]
-position = Vector2( 369, 105 )
+position = Vector2( 421, 98 )
 texture = ExtResource( 2 )
 script = ExtResource( 4 )
 __meta__ = {
@@ -40,7 +40,7 @@ margin_bottom = 40.0
 mouse_filter = 1
 
 [node name="Debugger" type="PanelContainer" parent="MarginContainer"]
-margin_right = 350.0
+margin_right = 320.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3

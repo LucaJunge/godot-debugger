@@ -3,12 +3,14 @@ extends Sprite
 var factor: float = 0.5
 var walk_distance: float = 3.15
 var scale_distance: float = 0.05
+onready var initial_position = position
 
 func _ready() -> void:
 	randomize()
 
 func _process(_delta: float) -> void:
-	position += random_walk(walk_distance)
+
+	position = initial_position + random_walk(walk_distance)
 	
 	var rs = (randi() % 10 + 5) / 10.0
 	scale = 2 * Vector2(rs, rs)
