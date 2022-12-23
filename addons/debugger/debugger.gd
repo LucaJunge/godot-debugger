@@ -73,8 +73,11 @@ func remove(_object: String) -> bool:
 func addMonitor(obj: Object, property: String, identifier: String) -> void:
 	# chose the correct monitor type (integer, vector2, etc..)
 	
-	# if a vector, if a real...
 	var new_monitor = get_monitor_of_type(obj, property)
+	
+	# remove the debugger help label on the first add
+	list.get_node("%HelpLabel").visible = false
+	
 	list.add_child(new_monitor)
 	
 	new_monitor.init(obj, property, identifier)

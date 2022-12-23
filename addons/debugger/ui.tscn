@@ -16,6 +16,7 @@ anti_aliasing = false
 [node name="MarginContainer" type="MarginContainer"]
 margin_right = 150.0
 margin_bottom = 200.0
+theme = ExtResource( 1 )
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -62,7 +63,7 @@ margin_right = 100.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="Background/List/Heading/HBoxContainer/MarginContainer/HBoxContainer"]
+[node name="DebuggerIcon" type="TextureRect" parent="Background/List/Heading/HBoxContainer/MarginContainer/HBoxContainer"]
 margin_right = 16.0
 margin_bottom = 18.0
 texture = ExtResource( 2 )
@@ -122,3 +123,27 @@ margin_top = 8.0
 margin_right = 122.0
 margin_bottom = 138.0
 custom_constants/separation = 8
+
+[node name="HelpLabel" type="RichTextLabel" parent="Background/List/MarginContainer/ContentList"]
+unique_name_in_owner = true
+margin_right = 114.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "To add properties to the debugger, get a reference to the debugger and add a property of an object:
+
+[i]
+var debugger = get_node(\"Debugger\")
+var my_object = get_node(\"MyObject\")
+
+debugger.addMonitor(my_object, \"position\", \"Object Position\")
+[/i]"
+text = "To add properties to the debugger, get a reference to the debugger and add a property of an object:
+
+
+var debugger = get_node(\"Debugger\")
+var my_object = get_node(\"MyObject\")
+
+debugger.addMonitor(my_object, \"position\", \"Object Position\")
+"
