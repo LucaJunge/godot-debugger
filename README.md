@@ -2,6 +2,8 @@
 
 A plugin for debugging values easily in Godot.
 
+![preview](./preview.gif)
+
 # Installation
 
 Copy the `addons/debugger` into the `addons/` folder of your project
@@ -17,4 +19,12 @@ You can then call the add() method of the debugger to add a label displaying the
 var debugger = get_node("Debugger")
 
 debugger.add(your_object, "property_as_string", "Custom Identifier")
+```
+
+For example (see the GIF above):
+
+```
+var bug = get_node("Sprite")
+
+debuger.add(bug, "position", "Bug Position")
 ```

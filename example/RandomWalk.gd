@@ -10,8 +10,14 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	position += random_walk(walk_distance)
 	
-	var rs = (randi() % 10 + 1) / 10.0
-	scale = Vector2(rs, rs)
+	var rs = (randi() % 10 + 5) / 10.0
+	scale = 2 * Vector2(rs, rs)
+	
+	var rot = randi() % 30 + 1
+	if rotation_degrees > 0:
+		rotation_degrees -= rot
+	else:
+		rotation_degrees += rot
 
 func random_walk(distance: float) -> Vector2:
 	var next_walk = Vector2(0, 0)

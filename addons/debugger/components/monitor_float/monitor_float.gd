@@ -19,4 +19,4 @@ func init(_obj: Object, _property: String, _identifier: String) -> void:
 	value_label.text = str(obj[property])
 
 func update() -> void:
-	value_label.text = str(obj[property])
+	value_label.text = str("%.2f" % obj[property])

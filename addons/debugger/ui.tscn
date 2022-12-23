@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://addons/debugger/resources/debugger_theme.tres" type="Theme" id=1]
+[ext_resource path="res://addons/debugger/icon-16.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color( 0.156863, 0.160784, 0.180392, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
 
 [node name="MarginContainer" type="MarginContainer"]
 margin_right = 150.0
@@ -25,49 +36,85 @@ custom_constants/separation = 0
 
 [node name="Heading" type="PanelContainer" parent="Background/List"]
 margin_right = 130.0
-margin_bottom = 31.0
+margin_bottom = 34.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 theme_type_variation = "PanelContainerLight"
 
-[node name="MarginContainer" type="MarginContainer" parent="Background/List/Heading"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/List/Heading"]
 margin_right = 130.0
-margin_bottom = 31.0
+margin_bottom = 34.0
+custom_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/List/Heading/MarginContainer"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 125.0
+[node name="MarginContainer" type="MarginContainer" parent="Background/List/Heading/HBoxContainer"]
+margin_right = 114.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/List/Heading/HBoxContainer/MarginContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 106.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 
-[node name="HeadingLabel" type="Label" parent="Background/List/Heading/MarginContainer/HBoxContainer"]
-margin_top = 1.0
-margin_right = 102.0
-margin_bottom = 19.0
+[node name="TextureRect" type="TextureRect" parent="Background/List/Heading/HBoxContainer/MarginContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 18.0
+texture = ExtResource( 2 )
+
+[node name="HeadingLabel" type="Label" parent="Background/List/Heading/HBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 20.0
+margin_right = 98.0
+margin_bottom = 18.0
 size_flags_horizontal = 3
 text = "Debugger"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="Background/List/Heading/MarginContainer/HBoxContainer"]
-margin_left = 106.0
-margin_right = 120.0
+[node name="Button" type="Button" parent="Background/List/Heading/HBoxContainer/MarginContainer/HBoxContainer"]
+visible = false
+margin_left = 100.0
+margin_right = 114.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 14, 14 )
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
+[node name="MarginContainer2" type="MarginContainer" parent="Background/List/Heading/HBoxContainer"]
+margin_left = 114.0
+margin_right = 130.0
+margin_bottom = 34.0
+
+[node name="DragButton" type="PanelContainer" parent="Background/List/Heading/HBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 11.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 1, 0 )
+mouse_default_cursor_shape = 2
+custom_styles/panel = SubResource( 1 )
+
 [node name="MarginContainer" type="MarginContainer" parent="Background/List"]
-margin_top = 31.0
+margin_top = 34.0
 margin_right = 130.0
 margin_bottom = 180.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
 
 [node name="ContentList" type="VBoxContainer" parent="Background/List/MarginContainer"]
 unique_name_in_owner = true
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 125.0
-margin_bottom = 144.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 122.0
+margin_bottom = 138.0
+custom_constants/separation = 8

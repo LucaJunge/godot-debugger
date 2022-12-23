@@ -11,6 +11,7 @@ onready var debugger_monitor_float = preload("res://addons/debugger/components/m
 
 onready var ui = preload("ui.tscn").instance()
 onready var list = ui.get_node("%ContentList")
+onready var drag_button = ui.get_node("%DragButton")
 onready var monitors = []
 
 export var panel_padding: int = 10
@@ -45,6 +46,11 @@ func init() -> void:
 	self.set("custom_styles/panel", StyleBoxEmpty.new())
 	
 	ui.rect_min_size = Vector2(150, 200)
+	
+	
+	# add drag button events
+	
+	drag_button.connect("gui_input", self, "on_drag_input")
 	
 	# padding...
 	# update rate...
@@ -87,3 +93,10 @@ func get_monitor_of_type(obj, property) -> Control:
 			new_monitor = debugger_monitor_float.instance()
 			
 	return new_monitor
+
+func on_drag_input(event: InputEvent):
+	
+	# On button click start
+	if event is InputEventMouseButton and event.pressed:
+		print("Click start")
+		print(event)
