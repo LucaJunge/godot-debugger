@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=13 format=2]
+[gd_resource type="Theme" load_steps=14 format=2]
 
 [ext_resource path="res://addons/debugger/resources/HeadingFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/debugger/resources/ButtonFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://addons/debugger/resources/LabelFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://addons/debugger/resources/DefaultFont.tres" type="DynamicFont" id=4]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.678431, 0.686275, 0.721569, 1 )
@@ -105,6 +106,11 @@ PanelContainerMonitor/base_type = "PanelContainer"
 PanelContainerMonitor/styles/panel = SubResource( 5 )
 PanelContainerValue/base_type = "PanelContainer"
 PanelContainerValue/styles/panel = SubResource( 4 )
+RichTextLabel/fonts/bold_font = ExtResource( 4 )
+RichTextLabel/fonts/bold_italics_font = ExtResource( 4 )
+RichTextLabel/fonts/italics_font = ExtResource( 4 )
+RichTextLabel/fonts/mono_font = ExtResource( 4 )
+RichTextLabel/fonts/normal_font = ExtResource( 3 )
 VScrollBar/styles/grabber = SubResource( 6 )
 VScrollBar/styles/grabber_highlight = SubResource( 8 )
 VScrollBar/styles/grabber_pressed = SubResource( 9 )

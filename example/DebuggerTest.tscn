@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://addons/debugger/debugger.gd" type="Script" id=1]
 [ext_resource path="res://addons/debugger/icon-16.png" type="Texture" id=2]
 [ext_resource path="res://example/DebuggerTest.gd" type="Script" id=3]
 [ext_resource path="res://example/RandomWalk.gd" type="Script" id=4]
+[ext_resource path="res://addons/debugger/resources/debugger_theme.tres" type="Theme" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -22,13 +23,6 @@ __meta__ = {
 "_editor_description_": "hello"
 }
 
-[node name="Debugger" type="PanelContainer" parent="."]
-margin_right = 320.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 150, 200 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -39,3 +33,10 @@ valign = 1
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Debugger" type="PanelContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 200.0
+theme = ExtResource( 5 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )

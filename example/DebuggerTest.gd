@@ -39,5 +39,5 @@ func _process(_delta: float) -> void:
 	#debugger.update()
 
 func update_debugger():
-	print("update")
+	#print("update")
 	debugger.update()

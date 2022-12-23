@@ -1,6 +1,9 @@
 tool
 extends PanelContainer
 
+# theme
+var _theme = preload("res://addons/debugger/resources/debugger_theme.tres")
+
 # Types of Monitors and Input
 onready var debugger_monitor_integer = preload("res://addons/debugger/components/monitor_integer/monitor_integer.tscn")
 onready var debugger_monitor_vector2 = preload("res://addons/debugger/components/monitor_vector2/monitor_vector2.tscn")
@@ -16,6 +19,7 @@ onready var monitors = []
 
 export var panel_padding: int = 10
 export var width: Vector2 = Vector2(320, 200) setget set_width, get_width
+export var font_size: int = 14 setget set_font_size, get_font_size
 
 var drag_start: Vector2 = Vector2(0, 0)
 var drag_pressed: bool = false
@@ -26,6 +30,24 @@ func set_width(val: Vector2) -> void:
 
 func get_width() -> Vector2:
 	return width
+
+func set_font_size(val: int) -> void:
+	font_size = clamp(val, 1, 100)
+	
+	# set the font size(s)
+	var theme_types = _theme.get_font_types()
+	
+	for theme_type in theme_types:
+		
+		var font_list = _theme.get_font_list(theme_type)
+		
+		for font in font_list:
+			var _font: Font = _theme.get_font(font, theme_type)
+			_font.size = font_size
+
+func get_font_size() -> int:
+	return font_size
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,7 +63,8 @@ func _ready() -> void:
 		return
 	
 	# else start normal
-	init()
+	else:
+		init()
 	
 func init() -> void:
 	
@@ -52,9 +75,11 @@ func init() -> void:
 	# remove background of the margin container surrounding the debugger
 	self.set("custom_styles/panel", StyleBoxEmpty.new())
 	
+	# set the theme
+	self.set("theme", _theme)
+	
 	ui.rect_min_size = Vector2(width.x, width.y)
 	ui.rect_size = Vector2(width.x, width.y)
-	
 	
 	# add drag button events
 	drag_button.connect("gui_input", self, "on_drag_input")
