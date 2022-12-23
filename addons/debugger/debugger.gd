@@ -17,6 +17,9 @@ onready var monitors = []
 export var panel_padding: int = 10
 export var width: float = 150 setget set_width, get_width
 
+var drag_start: Vector2 = Vector2(0, 0)
+var drag_pressed: bool = false
+
 func set_width(val: float) -> void:
 	self.rect_size.x = val
 
@@ -96,7 +99,17 @@ func get_monitor_of_type(obj, property) -> Control:
 
 func on_drag_input(event: InputEvent):
 	
-	# On button click start
-	if event is InputEventMouseButton and event.pressed:
-		print("Click start")
-		print(event)
+	# On left button click pressed
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+		drag_pressed = true
+		if not drag_start:
+			drag_start = event.position
+	
+	# On left button click released
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and not event.pressed:
+		drag_pressed = false
+		
+	# On button drag
+	if event is InputEventMouseMotion and drag_pressed:
+		if drag_start:
+			self.rect_size.x += event.position.x

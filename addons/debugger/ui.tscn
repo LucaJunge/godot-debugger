@@ -47,7 +47,7 @@ margin_bottom = 34.0
 custom_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Background/List/Heading/HBoxContainer"]
-margin_right = 114.0
+margin_right = 108.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 custom_constants/margin_right = 8
@@ -58,7 +58,7 @@ custom_constants/margin_bottom = 8
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/List/Heading/HBoxContainer/MarginContainer"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 106.0
+margin_right = 100.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 
@@ -69,7 +69,7 @@ texture = ExtResource( 2 )
 
 [node name="HeadingLabel" type="Label" parent="Background/List/Heading/HBoxContainer/MarginContainer/HBoxContainer"]
 margin_left = 20.0
-margin_right = 98.0
+margin_right = 92.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 text = "Debugger"
@@ -86,16 +86,20 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 
 [node name="MarginContainer2" type="MarginContainer" parent="Background/List/Heading/HBoxContainer"]
-margin_left = 114.0
+margin_left = 108.0
 margin_right = 130.0
 margin_bottom = 34.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
 
 [node name="DragButton" type="PanelContainer" parent="Background/List/Heading/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 11.0
-margin_bottom = 29.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 14.0
+margin_bottom = 26.0
 rect_min_size = Vector2( 1, 0 )
 mouse_default_cursor_shape = 2
 custom_styles/panel = SubResource( 1 )

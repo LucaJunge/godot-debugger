@@ -58,4 +58,3 @@ theme_type_variation = "LabelValue"
 text = "value"
 valign = 1
 clip_text = true
-percent_visible = -0.2

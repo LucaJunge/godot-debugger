@@ -24,6 +24,10 @@ config/name="godot-debugger"
 run/main_scene="res://example/Debugger.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/handheld/orientation="portrait"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/debugger/plugin.cfg" )
