@@ -24,32 +24,32 @@ custom_constants/margin_bottom = 10
 [node name="Background" type="PanelContainer" parent="."]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 140.0
-margin_bottom = 156.0
+margin_right = 146.0
+margin_bottom = 158.0
 rect_min_size = Vector2( 130, 0 )
 
 [node name="List" type="VBoxContainer" parent="Background"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 123.0
-margin_bottom = 139.0
+margin_right = 129.0
+margin_bottom = 141.0
 custom_constants/separation = 0
 
 [node name="Heading" type="PanelContainer" parent="Background/List"]
-margin_right = 116.0
-margin_bottom = 32.0
+margin_right = 122.0
+margin_bottom = 34.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 theme_type_variation = "PanelContainerLight"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/List/Heading"]
-margin_right = 116.0
-margin_bottom = 32.0
+margin_right = 122.0
+margin_bottom = 34.0
 custom_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Background/List/Heading/HBoxContainer"]
-margin_right = 94.0
-margin_bottom = 32.0
+margin_right = 100.0
+margin_bottom = 34.0
 size_flags_horizontal = 3
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
@@ -59,19 +59,19 @@ custom_constants/margin_bottom = 8
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/List/Heading/HBoxContainer/MarginContainer"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 86.0
-margin_bottom = 24.0
+margin_right = 92.0
+margin_bottom = 26.0
 size_flags_horizontal = 3
 
 [node name="DebuggerIcon" type="TextureRect" parent="Background/List/Heading/HBoxContainer/MarginContainer/HBoxContainer"]
 margin_right = 16.0
-margin_bottom = 16.0
+margin_bottom = 18.0
 texture = ExtResource( 2 )
 
 [node name="HeadingLabel" type="Label" parent="Background/List/Heading/HBoxContainer/MarginContainer/HBoxContainer"]
 margin_left = 20.0
-margin_right = 78.0
-margin_bottom = 16.0
+margin_right = 84.0
+margin_bottom = 18.0
 size_flags_horizontal = 3
 text = "Debugger"
 align = 1
@@ -87,9 +87,9 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 
 [node name="MarginContainer2" type="MarginContainer" parent="Background/List/Heading/HBoxContainer"]
-margin_left = 94.0
-margin_right = 116.0
-margin_bottom = 32.0
+margin_left = 100.0
+margin_right = 122.0
+margin_bottom = 34.0
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
@@ -100,15 +100,15 @@ unique_name_in_owner = true
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 14.0
-margin_bottom = 24.0
+margin_bottom = 26.0
 rect_min_size = Vector2( 1, 0 )
 mouse_default_cursor_shape = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Background/List"]
-margin_top = 32.0
-margin_right = 116.0
-margin_bottom = 132.0
+margin_top = 34.0
+margin_right = 122.0
+margin_bottom = 134.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -118,58 +118,48 @@ custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Background/List/MarginContainer"]
+unique_name_in_owner = true
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 108.0
+margin_right = 114.0
 margin_bottom = 92.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Background/List/MarginContainer/ScrollContainer"]
-margin_right = 100.0
-margin_bottom = 84.0
+margin_right = 94.0
+margin_bottom = 456.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = 8
+custom_constants/margin_right = 0
 custom_constants/margin_top = 0
 custom_constants/margin_left = 0
 custom_constants/margin_bottom = 0
 
 [node name="ContentList" type="VBoxContainer" parent="Background/List/MarginContainer/ScrollContainer/MarginContainer"]
 unique_name_in_owner = true
-margin_right = 92.0
-margin_bottom = 84.0
+margin_right = 94.0
+margin_bottom = 456.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 8
 
 [node name="HelpLabel" type="MarginContainer" parent="Background/List/MarginContainer/ScrollContainer/MarginContainer/ContentList"]
 unique_name_in_owner = true
-margin_right = 92.0
-margin_bottom = 84.0
+margin_right = 94.0
+margin_bottom = 456.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = -8
 custom_constants/margin_top = 0
 custom_constants/margin_left = 0
 custom_constants/margin_bottom = 0
 
-[node name="HelpText" type="RichTextLabel" parent="Background/List/MarginContainer/ScrollContainer/MarginContainer/ContentList/HelpLabel"]
-unique_name_in_owner = true
-margin_right = 100.0
-margin_bottom = 84.0
+[node name="Helper" type="Label" parent="Background/List/MarginContainer/ScrollContainer/MarginContainer/ContentList/HelpLabel"]
+margin_right = 94.0
+margin_bottom = 456.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-bbcode_enabled = true
-bbcode_text = "To add properties to the debugger, get a reference to the debugger and add a property of an object:
-
-[i]
-var debugger = get_node(\"Debugger\")
-var my_object = get_node(\"MyObject\")
-
-debugger.addMonitor(my_object, \"position\", \"Object Position\")
-[/i]"
 text = "To add properties to the debugger, get a reference to the debugger and add a property of an object:
 
 
@@ -178,3 +168,4 @@ var my_object = get_node(\"MyObject\")
 
 debugger.addMonitor(my_object, \"position\", \"Object Position\")
 "
+autowrap = true

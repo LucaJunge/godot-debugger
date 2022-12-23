@@ -1,6 +1,6 @@
 extends Control
 
-onready var debugger = get_node("Debugger")
+onready var debugger = get_node("MarginContainer/Debugger")
 
 onready var unix_time = Time.get_unix_time_from_system()
 
@@ -12,11 +12,12 @@ func _ready() -> void:
 	var label = get_node("Label")
 	
 	# Add your properties
-	debugger.addMonitor(bug, "position", "Bug Position")
-	debugger.addMonitor(bug, "scale", "Bug Scale")
-	debugger.addMonitor(bug, "rotation_degrees", "Bug Rotation")
-	debugger.addMonitor(label, "text", "Text")
-	debugger.addMonitor(self, "unix_time", "Unix Time")
+	debugger.add_input(debugger, "font_size", "Font Size")
+	debugger.add_monitor(bug, "position", "Bug Position")
+	debugger.add_monitor(bug, "scale", "Bug Scale")
+	debugger.add_monitor(bug, "rotation_degrees", "Bug Rotation")
+	debugger.add_monitor(label, "text", "Text")
+	debugger.add_monitor(self, "unix_time", "Unix Time")
 
 	
 	#TODO: debugger.set_rate(30) # 30 times a second, down to 1 times a second maybe?

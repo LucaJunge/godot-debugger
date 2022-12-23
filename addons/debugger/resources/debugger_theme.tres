@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=2]
+[gd_resource type="Theme" load_steps=15 format=2]
 
 [ext_resource path="res://addons/debugger/resources/HeadingFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/debugger/resources/ButtonFont.tres" type="DynamicFont" id=2]
@@ -12,6 +12,10 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.156863, 0.160784, 0.180392, 1 )
 corner_radius_top_left = 8
@@ -20,6 +24,13 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 shadow_color = Color( 0, 0, 0, 0.0784314 )
 shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.215686, 0.219608, 0.239216, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.215686, 0.219608, 0.239216, 1 )
@@ -40,44 +51,14 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id=6]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_top = 2.0
-content_margin_bottom = 2.0
-bg_color = Color( 0.215686, 0.219608, 0.239216, 1 )
+[sub_resource type="StyleBoxFlat" id=14]
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id=8]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_top = 2.0
-content_margin_bottom = 2.0
-bg_color = Color( 0.215686, 0.219608, 0.239216, 1 )
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id=9]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_top = 2.0
-content_margin_bottom = 2.0
-bg_color = Color( 0.215686, 0.219608, 0.239216, 1 )
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=13]
 content_margin_left = 6.0
-content_margin_right = 0.0
-content_margin_top = 0.0
-content_margin_bottom = 0.0
 bg_color = Color( 0.12549, 0.129412, 0.145098, 1 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -92,14 +73,21 @@ Label/fonts/font = ExtResource( 1 )
 LabelIdentifier/base_type = "Label"
 LabelIdentifier/colors/font_color = Color( 0.560784, 0.564706, 0.596078, 1 )
 LabelIdentifier/fonts/font = ExtResource( 3 )
+LabelInput/base_type = "Label"
+LabelInput/colors/font_color = Color( 0.678431, 0.686275, 0.721569, 1 )
 LabelValue/base_type = "Label"
 LabelValue/colors/font_color = Color( 0.560784, 0.564706, 0.596078, 1 )
 LabelValue/fonts/font = ExtResource( 3 )
+LineEdit/fonts/font = ExtResource( 4 )
+LineEdit/styles/focus = SubResource( 12 )
+LineEdit/styles/normal = SubResource( 11 )
 MarginContainer/constants/margin_bottom = 5
 MarginContainer/constants/margin_left = 5
 MarginContainer/constants/margin_right = 5
 MarginContainer/constants/margin_top = 5
 PanelContainer/styles/panel = SubResource( 1 )
+PanelContainerInput/base_type = "PanelContainer"
+PanelContainerInput/styles/panel = SubResource( 10 )
 PanelContainerLight/base_type = "PanelContainer"
 PanelContainerLight/styles/panel = SubResource( 2 )
 PanelContainerMonitor/base_type = "PanelContainer"
@@ -111,7 +99,8 @@ RichTextLabel/fonts/bold_italics_font = ExtResource( 4 )
 RichTextLabel/fonts/italics_font = ExtResource( 4 )
 RichTextLabel/fonts/mono_font = ExtResource( 4 )
 RichTextLabel/fonts/normal_font = ExtResource( 3 )
-VScrollBar/styles/grabber = SubResource( 6 )
-VScrollBar/styles/grabber_highlight = SubResource( 8 )
-VScrollBar/styles/grabber_pressed = SubResource( 9 )
-VScrollBar/styles/scroll = SubResource( 7 )
+VScrollBar/styles/grabber = SubResource( 14 )
+VScrollBar/styles/grabber_highlight = SubResource( 14 )
+VScrollBar/styles/grabber_pressed = SubResource( 14 )
+VScrollBar/styles/scroll = SubResource( 13 )
+VScrollBar/styles/scroll_focus = SubResource( 13 )
